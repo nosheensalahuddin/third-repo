@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Git Check') {
+            steps {
+                bat 'git --version'
+            }
+        }
+
+        stage('Java Check') {
+            steps {
+                bat 'java -version'
+            }
+        }
+
+        stage('Workspace') {
+            steps {
+                bat 'dir'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline Successful'
+        }
+    }
+}
