@@ -5,7 +5,7 @@ pipeline {
 
         stage('Git Check') {
             steps {
-                bat 'git --version'
+                bat '"C:\\Program Files\\Git\\cmd\\git.exe" --version'
             }
         }
 
@@ -25,6 +25,10 @@ pipeline {
     post {
         success {
             echo 'Pipeline Successful'
+        }
+
+        failure {
+            echo 'Pipeline Failed'
         }
     }
 }
